@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import pages.MyFindLeadPage;
 import wdMethods.ProjectMethods;
 
 public class TC006_DeleteLead extends ProjectMethods{
@@ -20,8 +21,8 @@ public class TC006_DeleteLead extends ProjectMethods{
 	}	
 	
 	@Test(dataProvider="fetchData")
-	public void editleadtc(String uName,String pwd,String fName,String Value,String leadTitle,String deptName,String LeadID,String record ) {
-		new LoginPage()
+	public void editleadtc(String uName,String pwd,String fName,String leadTitle,String record ) {
+		MyFindLeadPage flp= new LoginPage()
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()
@@ -29,13 +30,13 @@ public class TC006_DeleteLead extends ProjectMethods{
 		.clickLeads()
 		.clickFindLead()
 		.enterFindLead(fName)
-		.clickFindLeadButton()
-		.getFirstValue()
-		.clickFirstValue()
+		.clickFindLeadButton();
+		String firstResLead=flp.getFirstLeadID();
+		flp.clickFirstValue()
 		.verifyViewLeadTitle(leadTitle)
 		.clickDeleteLead()
 		.clickFindLead()
-		.enterLeadID(Value)
+		.enterLeadID(firstResLead)
 		.clickFindLeadButton()
 		.verifyRecords(record);
 		

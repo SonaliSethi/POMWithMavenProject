@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.InvalidElementStateException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -33,13 +35,12 @@ public class MyFindLeadPage extends ProjectMethods{
 	//entering the phone no
 	@FindBy(how=How.NAME,using="phoneNumber")
 	private WebElement elePhoneno;
-	
+
 	public MyFindLeadPage enterPhoneno(String data) {
 		type(elePhoneno, data);
 		return this;
 			
 	}
-	
 	
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Find Leads')]")
 	private WebElement eleClickFindLeadButton;
@@ -49,10 +50,12 @@ public class MyFindLeadPage extends ProjectMethods{
 		return this;	
 	}
 	@FindBy(how=How.XPATH,using="(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a")
-	private WebElement eleGetFirstValue;
-	public MyFindLeadPage getFirstValue() {
-		click(eleGetFirstValue);
-		return this;	
+	private WebElement eleGetFirstLeadID;
+	public String getFirstLeadID() 
+	{
+		String leadID = eleGetFirstLeadID.getText();
+		return leadID;	
+		
 	}
 	@FindBy(how=How.XPATH,using="(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a")
 	private WebElement eleClickValue;
@@ -81,7 +84,7 @@ public class MyFindLeadPage extends ProjectMethods{
 	private WebElement eleverifyRecords;
 	
 	public MyFindLeadPage verifyRecords(String record) {
-		type(eleverifyRecords, record);
+		verifyExactText(eleverifyRecords, record);
 		return this;
 			
 	}

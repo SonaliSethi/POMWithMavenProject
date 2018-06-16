@@ -1,5 +1,11 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.NoSuchWindowException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -16,9 +22,11 @@ public class MyMergeLeadPage extends ProjectMethods{
 	@FindBy(how=How.XPATH,using="(//img[@alt='Lookup'])[1]")
 	private WebElement elefindLead;
 	
-	public MyMergeLeadPage enterFindLead(String data) {
-		type(elefindLead, data);
-		return this;
-			
-	}	
+	public MyFindLeadPopupPage clickFirstIcon() {
+		clickWithNoSnap(elefindLead);
+		switchToWindow(1);
+		return  new MyFindLeadPopupPage();
+		
+		
+	}
 }

@@ -20,7 +20,7 @@ public class TC003_CreateLead extends ProjectMethods{
 	}	
 	
 	@Test(dataProvider="fetchData")
-	public void createleadtc(String uName,String pwd,String compName,String fName,String lName,String firstName) {
+	public void createleadtc(String uName,String pwd,String compName,String fName,String lName,String number,String firstName) {
 		new LoginPage()
 		.enterUserName(uName)
 		.enterPassword(pwd)
@@ -31,6 +31,7 @@ public class TC003_CreateLead extends ProjectMethods{
 		.enterCompName(compName)
 		.enterFirstName(fName)
 		.enterLastName(lName)
+		.enterPhoneNo(number)
 		.clickCreateLeads()
 		.verifyfirstName(firstName);
 		

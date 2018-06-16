@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import pages.MyFindLeadPage;
 import wdMethods.ProjectMethods;
 
 public class TC007_MergeLead extends ProjectMethods{
@@ -21,16 +22,16 @@ public class TC007_MergeLead extends ProjectMethods{
 	
 	@Test(dataProvider="fetchData")
 	public void editleadtc(String uName,String pwd,String fName,String leadTitle,String deptName,String industryName ) {
-		new LoginPage()
+		MyFindLeadPage flp= new LoginPage()
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()
 		.clickCrmsfa()
 		.clickLeads()
-		.clickFindLead()
-		.enterFindLead(fName)
-		.clickFindLeadButton()
-		.clickFirstValue()
+		.clickMergeLead()
+		.clickFirstIcon();
+		String firstResLead=flp.getFirstLeadID();
+		flp.clickValue()
 		.verifyViewLeadTitle(leadTitle)
 		.clickEditLead()
 		.enterDeptName(deptName)

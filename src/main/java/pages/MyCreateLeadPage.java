@@ -40,6 +40,14 @@ public class MyCreateLeadPage extends ProjectMethods{
 		type(elelName, data);
 		return this;
 	}
+
+	@FindBy(how=How.ID,using="createLeadForm_primaryPhoneNumber")
+	
+	private WebElement elelNumber;
+	public MyCreateLeadPage enterPhoneNo(String number) {
+		type(elelNumber, number);
+		return this;
+	}
 	
 	@FindBy(how=How.NAME,using="submitButton")
 
@@ -49,4 +57,5 @@ public class MyCreateLeadPage extends ProjectMethods{
 		click(eleviewLead);
 		return new ViewLeadsPage();	
 	}
+	
 }

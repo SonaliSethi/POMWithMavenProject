@@ -52,7 +52,18 @@ public class SeMethods extends Reporter implements WdMethods{
 			e.printStackTrace();
 		}
 	}
-
+	
+/*	public void loadObj() {
+		prop = new Properties();
+	
+			try {
+				prop.load(new FileInputStream(new File("./src/main/resources/object.properties")));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+	}
+*/
 	public void startApp(String browser, boolean bRemote) {
 		try {
 			DesiredCapabilities dc = new DesiredCapabilities();
