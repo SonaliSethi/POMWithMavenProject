@@ -12,7 +12,7 @@ public class TC002_LoginForFailure extends ProjectMethods{
 	public void setData() {
 		testCaseName="TC002_LoginforNegative";
 		testDescription="Login for failure(Negative)";
-		testNodes="Leads";
+		testNodes="Leads"; 
 		category="Smoke";
 		authors="Sarath";
 		browserName="chrome";
